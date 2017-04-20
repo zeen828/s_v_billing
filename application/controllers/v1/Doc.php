@@ -6,6 +6,7 @@ class Doc extends CI_Controller {
 		parent::__construct ();
 	}
 	public function index() {
+		$this->config->load ( 'vidol' );
 		$this->load->library ( 'session' );
 		$this->load->library ( 'GoogleAuthenticator' );
 		//
