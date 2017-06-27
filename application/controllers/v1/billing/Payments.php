@@ -26,6 +26,7 @@ class Payments extends MY_REST_Controller {
 			// 引入
 			$this->load->library ( 'vidol_billing/spgateway_api' );
 			$this->load->model ( 'vidol_billing/payment_model' );
+			$this->load->model ( 'vidol_billing/order_cashs_model' );
 			$this->load->model ( 'vidol_billing/call_function_model' );
 			// 變數
 			$data_input = array ();
@@ -65,6 +66,12 @@ class Payments extends MY_REST_Controller {
 			$data_input ['payment_no'] = $this->payment_model->get_payment_no_by_proxy_type ( $data_input ['payment_proxy'], $data_input ['payment_type'] );
 			if (empty ( $data_input ['payment_no'] )) {
 				$this->response ( $this->data_result, 408 );
+				return;
+			}
+			// 檢查sp_type單片是否購買過
+			$order = $this->order_cashs_model->get_Order_cashs_by_repeat('*', $data_input ['mongo_id'], $data_input ['package_no']);
+			if(!empty($order)){
+				$this->response ( $this->data_result, 406 );
 				return;
 			}
 			// 訂單

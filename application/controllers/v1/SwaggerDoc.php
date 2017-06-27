@@ -700,6 +700,9 @@ class SwaggerDoc extends CI_Controller {
 												"405" => array (
 														"description" => "無此商品" 
 												),
+												"406" => array (
+														"description" => "重複購買"
+												),
 												"408" => array (
 														"description" => "金流通路錯誤" 
 												),

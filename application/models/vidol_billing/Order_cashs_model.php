@@ -93,4 +93,29 @@ class Order_cashs_model extends CI_Model
     	//echo $this->r_db->last_query();
     	return $query;
     }
+    
+    /**
+     * 檢查訂單重副(package type 2 單集購買不能重複)
+     * @param unknown $select
+     * @param unknown $mongo_id
+     * @param unknown $package_no
+     * @return unknown|boolean
+     */
+    public function get_Order_cashs_by_repeat ($select, $mongo_id, $package_no)
+    {
+    	if(!empty($select)){
+    		$this->r_db->select($select);
+    	}
+    	$this->r_db->where('oc_mongo_id', $mongo_id);
+    	$this->r_db->where('oc_package_no', $package_no);
+    	$this->r_db->where('oc_package_type', '2');//產包類型(1:所有節目,2:單片,3..)用於判斷是否累計產包
+    	$this->r_db->where('oc_status', '1');
+    	$this->r_db->limit(1);
+    	$query = $this->r_db->get($this->table_name);
+    	//echo $this->r_db->last_query();
+    	if ($query->num_rows() > 0){
+    		return $query->row();
+    	}
+    	return false;
+	}
 }
