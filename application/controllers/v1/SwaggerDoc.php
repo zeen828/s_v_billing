@@ -1426,6 +1426,56 @@ class SwaggerDoc extends CI_Controller {
 												) 
 										) 
 								),
+								"post" => array (
+										"tags" => array (
+												"99.system" 
+										),
+										"summary" => "建立暫存",
+										"description" => "建立暫存",
+										"parameters" => array (
+												array (
+														"name" => "Authorization",
+														"description" => "token",
+														"in" => "header",
+														"type" => "string",
+														"required" => TRUE 
+												),
+												array (
+														"name" => "key",
+														"description" => "暫存key",
+														"in" => "formData",
+														"type" => "string",
+														"required" => TRUE 
+												),
+												array (
+														"name" => "value",
+														"description" => "暫存資料",
+														"in" => "formData",
+														"type" => "string",
+														"required" => TRUE 
+												),
+												array (
+														"name" => "debug",
+														"description" => "除錯用多列印出取得資料變數",
+														"in" => "formData",
+														"type" => "string",
+														"enum" => array (
+																'debug' 
+														) 
+												) 
+										),
+										"responses" => array (
+												"200" => array (
+														"description" => "成功" 
+												),
+												"403" => array (
+														"description" => "token未授權" 
+												),
+												"416" => array (
+														"description" => "傳遞資料錯誤" 
+												) 
+										) 
+								),
 								"delete" => array (
 										"tags" => array (
 												"99.system" 
