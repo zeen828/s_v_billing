@@ -70,7 +70,7 @@ class Caches extends MY_REST_Controller {
 				return;
 			}
 			// 建立暫存
-			$this->data_result [$data_input ['key']] = $this->cache->memcached->save ( $$data_input ['key'], $data_input ['value'], 3000 );
+			$this->data_result [$data_input ['key']] = $this->cache->memcached->save ( $data_input ['key'], $data_input ['value'], 3000 );
 			$this->data_result ['info'] = $this->cache->memcached->cache_info ();
 			// 結束時間標記
 			$this->benchmark->mark ( 'code_end' );
