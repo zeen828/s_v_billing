@@ -2,7 +2,9 @@
 $lang['system_default'] = '系統預設碼';
 $lang['system_success'] = '成功';
 $lang['system_error'] = '錯誤';
+$lang['system_not_config'] = '查無設定檔';
 $lang['system_time_out'] = '操作超時';
+$lang['system_expired'] = '過期';
 
 $lang['database_error'] = '資料庫錯誤';
 $lang['database_stored_procedure_error'] = 'stored procedure錯誤';
@@ -14,6 +16,7 @@ $lang['database_add_to_cancel_cash_error'] = '訂單失敗錯誤';
 $lang['database_check_rights_error'] = '判別使用者是否可觀看影片錯誤';
 $lang['database_not_data'] = '沒有資料';
 $lang['database_format_error'] = '資料格式錯誤';
+$lang['database_full_error'] = '名額已額滿';
 
 $lang['permissions_error'] = '權限錯誤';
 $lang['permissions_rest_error'] = 'REST KEY錯誤';
@@ -37,3 +40,5 @@ $lang['billing_exchange_SN_error'] = '序號兌換錯誤';
 
 $lang['user_error'] = '會員錯誤';
 $lang['user_level_error'] = '會員分級錯誤';
+
+$lang['event_repeat'] = '活動重複';
